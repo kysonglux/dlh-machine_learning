@@ -4,16 +4,16 @@
 
 def cat_matrices2D(mat1, mat2, axis=0):
     """"shallow copy vs. deep copy """
-    for row in mat1: 
+    for row in mat1:
         if len(row) != len(mat1[0]):
             return None
     for row in mat2:
-        if len(row)  != len(mat2[0]):
+        if len(row) != len(mat2[0]):
             return None
     if axis == 0:
         if mat1 == []:
             return [row[:] for row in mat2]
-        if mat2 ==[]:
+        if mat2 == []:
             return [row[:] for row in mat1]
         if len(mat1[0]) != len(mat2[0]):
             return None
