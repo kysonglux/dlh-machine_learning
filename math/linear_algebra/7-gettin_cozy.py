@@ -7,6 +7,8 @@ def cat_matrices2D(mat1, mat2, axis=0):
     if axis == 0:
         return [row[:] for row in mat1] + [row[:] for row in mat2]
     else:
+        if len(mat1) != len(mat2):
+            return None
         new_matrix = []
         for i in range(len(mat1)):
             new_matrix.append(mat1[i][:] + mat2[i][:])
