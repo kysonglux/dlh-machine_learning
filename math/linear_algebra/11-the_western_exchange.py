@@ -7,4 +7,4 @@ import numpy
 
 def np_transpose(matrix):
     """ transpose matrix """
-    return numpy.transpose(matrix, axes=None)
+    return matrix.T
