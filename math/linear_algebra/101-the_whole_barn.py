@@ -11,13 +11,10 @@ def add_matrices(mat1, mat2):
             return None
         result = []
         for m1, m2 in zip(mat1, mat2):
-            if isinstance(m1, list) and isinstance(m2, list):
-                if len(m1) != len(m2):
-                    return None
-                result.append(add_matrices(m1, m2))
-            elif isinstance(m1, int) and isinstance(m2, int):
-                result.append(m1 + m2)
-            else:
+            added = add_matrices(m1, m2)
+            if added is None:
                 return None
-        return [add_matrices(m1, m2) for m1, m2 in zip(mat1, mat2)]
+            result.append(added)
+        return result
+
     return None
