@@ -6,12 +6,12 @@ def determinant(matrix):
     """ calculate determinant """
     if not isinstance(matrix, list):
         raise TypeError("matrix must be a list of lists")
-    elif matrix == [[]]:
-        return 1
     elif matrix == []:
         raise TypeError("matrix must be a list of lists")
     elif not isinstance(matrix[0], list):
         raise TypeError("matrix must be a list of lists")
+    elif matrix == [[]]:
+        return 1
     elif any(len(row) != len(matrix) for row in matrix):
         raise ValueError("matrix must be a square matrix")
     elif len(matrix) == 1 and len(matrix[0]) == 0:
