@@ -4,20 +4,29 @@
 
 def determinant(matrix):
     """ calculate determinant """
-    if not isinstance(matrix, list):
+    if not isinstance(matrix, list) or matrix == []:
         raise TypeError("matrix must be a list of lists")
-    elif len(matrix) != len(matrix[0]):        
+    if not isinstance(matrix[0], list):
+        raise TypeError("matrix must be a list of lists")
+    elif matrix == [[]]:
+        return 1
+    elif any(len(row) != len(matrix) for row in matrix):
         raise ValueError("matrix must be a square matrix")
-    elif len(matrix) == []:
-        return []
+    elif len(matrix) == 1 and len(matrix[0]) == 0:
+        return 1
     elif len(matrix) == 1:
         return matrix[0][0]
     elif len(matrix) == 2:
         return matrix[0][0] * matrix[1][1] - matrix[0][1] * matrix[1][0]
-    
+    else:
         det = 0
-        for col in range(len(matrix))
+        for col in range(len(matrix)):
             minor = []
-            for i in range (1, len(matrix))
+            for i in range(1, len(matrix)):
                 row = []
-                for 
+                for j in range(len(matrix)):
+                    if j != col:
+                        row.append(matrix[i][j])
+                minor.append(row)
+            det += (-1) ** col * matrix[0][col] * determinant(minor)
+        return det
