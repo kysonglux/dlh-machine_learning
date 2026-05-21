@@ -8,7 +8,7 @@ def determinant(matrix):
         raise TypeError("matrix must be a list of lists")
     elif matrix == []:
         raise TypeError("matrix must be a list of lists")
-    elif not isinstance(matrix[0], list):
+    elif not all(isinstance(row, list) for row in matrix):
         raise TypeError("matrix must be a list of lists")
     elif matrix == [[]]:
         return 1
