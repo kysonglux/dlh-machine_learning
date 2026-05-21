@@ -4,8 +4,10 @@
 
 def determinant(matrix):
     """ calculate determinant """
-    if not isinstance(matrix, list) or matrix == []:
+    if not isinstance(matrix, list):
         raise TypeError("matrix must be a list of lists")
+    if matrix == []:
+        raise TytpeError("matrix must be a list of lists")
     if not isinstance(matrix[0], list):
         raise TypeError("matrix must be a list of lists")
     elif matrix == [[]]:
