@@ -18,7 +18,7 @@ def determinant(matrix):
                     continue
                 row.append(matrix[r][c])
             sub.append(row)
-    det += (-1) ** col * matrix[0][col] * determinant(sub)
+        det += (-1) ** col * matrix[0][col] * determinant(sub)
     return det
 
 
