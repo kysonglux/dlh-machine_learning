@@ -26,12 +26,14 @@ def minor(matrix):
     """determinant of the smaller matrix left over when cross out """
     if not isinstance(matrix, list):
         raise TypeError("matrix must be a list of lists")
-    if not all(isinstance(row, list) for row in matrix):
-        raise TypeError("matrix must be a list of lists")
     if matrix == []:
         raise TypeError("matrix must be a list of lists")
+    if not all(isinstance(row, list) for row in matrix):
+        raise TypeError("matrix must be a list of lists")
+    if matrix == [[]]:
+        raise ValueError("matrix must be a non-empty square matrix")
     if len(matrix) != len(matrix[0]):
-        raise ValueError("matrix must be a non-empty squre matrix")
+        raise ValueError("matrix must be a non-empty square matrix")
     if len(matrix) == 1:
         return [[1]]
     minor_matrix = []
