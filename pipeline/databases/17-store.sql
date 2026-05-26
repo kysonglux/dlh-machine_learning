@@ -1,5 +1,8 @@
--- Counts 
-SELECT items.name , (items.quantity - IFNULL(sum(orders.number), 0)) AS quantity
-FROM items
-LEFT JOIN orders ON orders.item_name = items.name
-GROUP BY items.name, items.quantity;
+-- Stock management 
+CREATE TRIGGER decrease_quantity_after_order
+AFTER INSERT ON orders
+FOR EACH ROW
+BEGIN
+    UPDATE items
+    SET quantity = quantity - NEW.number
+    WHERE name = NEW.item_name;
