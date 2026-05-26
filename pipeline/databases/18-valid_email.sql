@@ -1,5 +1,6 @@
 -- creates a trigger that resets the attribute
-DELIMITER$$
+DELIMITER $$
+
 CREATE TRIGGER reset_valid_email
 BEFORE UPDATE ON users
 FOR EACH ROW
