@@ -5,11 +5,12 @@
 def top_students(mongo_collection):
     """returns sorted score"""
     return list(mongo_collection.aggregate([
+        {"$unwind": "$topics"},
         {
-            "$project": {
-                "name": 1,
-                "scores": 1,
-                "averageScore": { "$avg": "$scores.score" }
+            "$group": {
+                "_id": "$_id",
+                "name": {"$first": "$name"},
+                "averageScore": {"$avg": "$topics.score"}
             }
         },
         {"$sort": {"averageScore": -1}}
