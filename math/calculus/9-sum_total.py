@@ -3,6 +3,7 @@
 
 
 def summation_i_squared(n):
+    """ summation of i suqared """
     if n <= 0:
         return None
     else:
