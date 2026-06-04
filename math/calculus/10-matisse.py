@@ -4,6 +4,12 @@
 
 def poly_derivative(poly):
     """ calculates the derivative of a polynomial """
-    total = 0
-    for porwer, coeff in enumerate(poly):
-        total += coeff * (x ** power)
+    if not isinstance(poly, list):
+        return None
+
+    derivative = []
+    if len(poly) == 1:
+        return [0]
+    for i in range(1, len(poly)):
+        derivative.append(i * poly[i])
+    return derivative
