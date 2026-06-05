@@ -14,4 +14,6 @@ def poly_integral(poly, C=0):
         if val % 1 == 0:
             val = int(val)
         integral.append(val)
+    while len(integral) > 1 and integral[-1] == 0:
+        integral.pop()
     return integral
