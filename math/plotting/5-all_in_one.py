@@ -1,9 +1,11 @@
 #!/usr/bin/env python3
+"""5 graphs in one figure"""
 import numpy as np
 import matplotlib.pyplot as plt
 
-def all_in_one():
 
+def all_in_one():
+    """5 graphs in one figure using subplots"""
     y0 = np.arange(0, 11) ** 3
 
     mean = [69, 0]
@@ -27,4 +29,46 @@ def all_in_one():
     np.random.seed(5)
     student_grades = np.random.normal(68, 15, 50)
 
-    # your code here
+    plt.rc('ytick', labelsize=8)
+    plt.rc('xtick', labelsize=8)
+    plt.rc('axes', labelsize=8)
+
+    plt.subplot2grid((3, 2), (0, 0))
+    plt.plot(y0, "r-")
+    plt.xlim(0, 10)
+    plt.subplot2grid((3, 2), (0, 1))
+    plt.scatter(x1, y1, color="magenta")
+    plt.title("Men's Height vs Weight", fontsize="x-small")
+    plt.xlabel("Height (in)")
+    plt.ylabel("Weight (lbs)")
+
+    plt.subplot2grid((3, 2), (1, 0))
+    plt.plot(x2, y2)
+    plt.yscale("log")
+    plt.xlim(0, 28650)
+    plt.xlabel("Time (years)")
+    plt.ylabel("Fraction Remaining")
+    plt.title("Exponential Decay of C-14", fontsize="x-small")
+
+    plt.subplot2grid((3, 2), (1, 1))
+    plt.plot(x3, y31, "r--", label="C-14")
+    plt.plot(x3, y32, "g-", label="Ra-226")
+    plt.xlim(0, 20000)
+    plt.ylim(0, 1)
+    plt.xlabel("Time (years)")
+    plt.ylabel("Fraction Remaining")
+    plt.title("Exponential Decay of Radioactive Elements", fontsize="x-small")
+    plt.legend()
+
+    plt.subplot2grid((3, 2), (2, 0), rowspan=1, colspan=2)
+    plt.hist(student_grades, bins=np.arange(0, 101, 10), edgecolor="black")
+    plt.xticks(np.arange(0, 101, 10))
+    plt.xlim(0, 100)
+    plt.ylim(0, 30)
+    plt.title("Project A", fontsize="x-small")
+    plt.xlabel("Grades")
+    plt.ylabel("Number of Students")
+
+    plt.tight_layout()
+    plt.suptitle("All in One")
+    plt.savefig("task5.png")
