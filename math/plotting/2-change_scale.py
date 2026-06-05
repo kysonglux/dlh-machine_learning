@@ -15,7 +15,7 @@ def change_scale():
 
     plt.plot(x, y, color="blue")
     plt.yscale("log")
-    plt.ylim(0, 1)
+    plt.ylim(np.min(y), 1)
     plt.xlim(0, 28650)
     plt.margins(x=0, y=0)
     plt.xlabel("Time (years)")
