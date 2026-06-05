@@ -15,10 +15,8 @@ def change_scale():
 
     plt.plot(x, y, color="blue")
     plt.yscale("log")
-    plt.ylim(np.min(y), 1)
     plt.xlim(0, 28650)
-    plt.margins(x=0, y=0)
     plt.xlabel("Time (years)")
     plt.ylabel("Fraction Remaining")
     plt.title("Exponential Decay of C-14")
-    plt.savefig("exponential.png")
+    plt.savefig("task2")
