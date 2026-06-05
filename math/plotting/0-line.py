@@ -13,4 +13,5 @@ def line():
     plt.plot(x, y, color="red", linewidth=2)
 
     plt.xlim(0, 10)
-    plt.show()
+    plt.margins(x=0)
+    plt.savefig("line_plot.png")
