@@ -5,9 +5,11 @@ import matplotlib.pyplot as plt
 
 
 def line():
+    """ draw the line graph"""
 
     y = np.arange(0, 11) ** 3
     plt.figure(figsize=(6.4, 4.8))
-    x = np.arange(0, 10, 2)
-    plt.plot(y)
+    plt.plot(y, color="red", linewidth=2)
+
+    plt.xlim(0, 10)
     plt.savefig("line_plot.png")
