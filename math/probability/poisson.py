@@ -23,7 +23,7 @@ class Poisson:
         if k < 0:
             return 0
         else:
-            e = 2.71828
+            e = 2.7182818285
             factorial = 1
             for i in range(1, k + 1):
                 factorial *= i
