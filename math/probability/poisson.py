@@ -19,11 +19,13 @@ class Poisson:
 
     def pmf(self, k):
         """ Calculate Probability Mass Function"""
-        e = 2.71828
-        numerator = e ** (-self.lambtha) * (self.lambtha ** k)
-
-        factorial = 1
-        for i in range(1, k + 1):
-            factorial *= i
-
-        return numerator / factorial
+        k = int(k)
+        if k < 0:
+            return 0
+        else:
+            e = 2.71828
+            factorial = 1
+            for i in range(1, k + 1):
+                factorial *= i
+            result = e ** (-self.lambtha) * (self.lambtha ** k)/factorial
+            return result
