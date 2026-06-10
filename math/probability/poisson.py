@@ -29,3 +29,13 @@ class Poisson:
                 factorial *= i
             result = e ** (-self.lambtha) * (self.lambtha ** k)/factorial
             return result
+
+    def cdf(self, k):
+        """Calculate Cumulative Distribution Function"""
+        k = int(k)
+        if k < 0:
+            return 0
+        result = 0
+        for i in range(k + 1):
+            result += self.pmf(i)
+        return result
