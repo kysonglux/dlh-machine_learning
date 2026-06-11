@@ -28,3 +28,19 @@ class Binomial:
                 raise ValueError("p must be greater than 0 and less than 1")
             self.n = int(n)
             self.p = float(p)
+
+    def pmf(self, k):
+        """Calculates the value of the PMF"""
+        k = int(k)
+        if k < 0 or k > self.n:
+            return 0
+
+        def factorial(num):
+            fact = 1
+            for i in range(1, num + 1):
+                fact *= i
+            return fact
+        input = factorial(self.n) / (factorial(k) * factorial(self.n - k))
+        success = self.p ** k
+        failure = (1 - self.p) ** (self.n - k)
+        return input * success * failure
