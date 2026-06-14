@@ -41,11 +41,11 @@ class Normal:
 
     def cdf(self, x):
         """Calculates the value of the CDF for a given x-value"""
-        z = (x - self.mean) / (self.stddev * (2 ** 0.5))
-        sign = 1 if z >= 0 else -1
-        abs_z = abs(z)
+        val = (x - self.mean) / (self.stddev * (2 ** 0.5))
+        sign = 1 if val >= 0 else -1
+        abs_v = abs(val)
 
-        t = 1.0 / (1.0 + 0.3275911 * abs_z)
+        t = 1.0 / (1.0 + 0.3275911 * abs_v)
         a1 = 0.254829592
         a2 = -0.284496736
         a3 = 1.421413741
@@ -53,7 +53,7 @@ class Normal:
         a5 = 1.061405429
 
         pol = ((((a5 * t + a4) * t + a3) * t + a2) * t + a1) * t
-        erf_approx = 1.0 - pol * (2.718281828459045 ** (-(abs_z ** 2)))
+        erf_approx = 1.0 - pol * (2.718281828459045 ** (-(abs_v ** 2)))
 
         erf_final = sign * erf_approx
         return 1/2 * (1.0 + erf_final)
