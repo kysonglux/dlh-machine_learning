@@ -14,7 +14,7 @@ class Normal:
             result = 0
             for i in data:
                 result += (i - self.mean)**2
-            self.stddev = (result / len(data))**0.5
+            self.stddev = (result / len(data) - 1)**0.5
 
         else:
             if stddev <= 0:
