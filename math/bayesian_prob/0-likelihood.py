@@ -21,6 +21,7 @@ def likelihood(x, n, P):
     coefficient = 1
     for i in range(1, k + 1):
         coefficient = coefficient * (n - k + i) // i
+    coefficient = float(coefficient)
     successes = P ** x
     failures = (1 - P) ** (n - x)
     return coefficient * successes * failures
