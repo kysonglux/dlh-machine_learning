@@ -4,5 +4,5 @@
 
 def array(df):
     """Function that takes dataframe as input"""
-    array = df[["High", "Close"]].to_numpy()
-    return array
+    array = df[["High", "Close"]].tail(10)
+    return array.to_numpy()
