@@ -4,5 +4,5 @@
 
 def slice(df):
     """slice function"""
-   
+
     return df[['High', 'Low', 'Close', 'Volume_(BTC)']].iloc[::60]
