@@ -9,8 +9,8 @@ def hierarchy(df1, df2):
     index = __import__('10-index').index
     df1 = index(df1)
     df2 = index(df2)
+    df1 = df1.loc[1417411980:1417417980]
     df2 = df2.loc[1417411980:1417417980]
-    """df1 = df1. reindex(df2.index)"""
     new_dataset = pd.concat([df2, df1], keys=['bitstamp', 'coinbase'])
     new_dataset = new_dataset.swaplevel(0, 1)
     return new_dataset.sort_index()
