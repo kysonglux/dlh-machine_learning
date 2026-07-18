@@ -7,6 +7,7 @@ from datetime import datetime
 
 
 def user_location(url):
+    """write a script that prints the location of a specific user"""
     try:
         response = requests.get(url)
         if response.status_code == 403:
